@@ -8,9 +8,7 @@ const SQLiteStore = require("connect-sqlite3")(session);
 const sqlite3 = require("sqlite3").verbose();
 
 const io = new Server(server);
-
-// / Use environment variable for port (important for deployment platforms like Render)
-const PORT = process.env.PORT || 3000;
+const onlineUsers = {}; // Global map of socket.id => username
 
 // Session middleware
 const sessionMiddleware = session({
@@ -114,8 +112,15 @@ io.on("connection", (socket) => {
     delete users[socket.id];
     io.emit("onlineUsers", users);
   });
+
+  socket.on("privateAlert", ({ to, from }) => {
+    const targetSocket = io.sockets.sockets.get(to);
+    if (targetSocket) {
+      targetSocket.emit("privateAlert", { from });
+    }
+  });
 });
 
-server.listen(PORT, () => {
-  console.log("Server running on http://localhost:${PORT}");
+server.listen(5000, () => {
+  console.log("Server running on http://localhost:5000");
 });
