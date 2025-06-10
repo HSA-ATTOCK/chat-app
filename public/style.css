@@ -9,6 +9,58 @@ body {
   overflow: hidden;
 }
 
+#callBtn {
+  background-color: #ffcc00;
+  position: fixed;
+  right: 5%;
+  border: none;
+  padding: 6px 12px;
+  margin-left: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#callBtn {
+  display: none; /* hide by default */
+}
+
+/* Call Prompt Overlay */
+#callPrompt {
+  display: none; /* Hide by default */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+/* Inner Box */
+.call-prompt-box {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 300px;
+  text-align: center;
+}
+
+/* Buttons */
+.call-btn {
+  margin: 5px 10px 0 0;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  background-color: #4caf50;
+  color: white;
+  cursor: pointer;
+}
+
+.call-btn.reject {
+  background-color: #f44336;
+}
+
 /* Layout container */
 .chat-container {
   display: flex;
