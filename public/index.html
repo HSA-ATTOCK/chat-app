@@ -39,12 +39,17 @@
           type="text"
           id="usernameInput"
           placeholder="Username"
-          style="padding: 10px; width: 100%; margin-top: 10px"
+          style="padding: 10px; width: 66%; margin-top: 10px"
           autocomplete="off"
         />
         <button
           id="enterChatBtn"
-          style="margin-top: 15px; padding: 10px 20px; cursor: pointer"
+          style="
+            position: relative;
+            margin-top: 15px;
+            padding: 10px 20px;
+            cursor: pointer;
+          "
         >
           Enter Chat
         </button>
@@ -64,6 +69,7 @@
         <div class="chat-header">
           <span id="menuToggle" class="menu-icon">☰</span>
           <h2 id="chatTitle">Public Chat</h2>
+          <button id="callBtn">Call</button>
           <span
             id="typingStatus"
             style="font-size: 0.9rem; font-style: italic"
@@ -81,6 +87,16 @@
           />
           <button id="sendBtn">Send</button>
         </div>
+      </div>
+    </div>
+
+    <!-- Custom call prompt modal -->
+    <!-- Call Prompt Modal -->
+    <div id="callPrompt" class="call-prompt">
+      <div class="call-prompt-box">
+        <p id="callPromptText"></p>
+        <button id="acceptCallBtn" class="call-btn">Accept</button>
+        <button id="rejectCallBtn" class="call-btn reject">Reject</button>
       </div>
     </div>
 
